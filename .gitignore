@@ -60,3 +60,6 @@ Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+Plugins/StateMachine/Intermediate/
+Plugins/StateMachine/Binaries/Win64/UE4Editor.modules
+fighting_tut.VC.db

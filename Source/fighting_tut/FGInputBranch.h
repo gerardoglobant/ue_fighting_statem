@@ -2,18 +2,31 @@
 
 #pragma once
 
-#include "SM_State.h"
+#include "FGAtoms.h"
 #include "FGInputBranch.generated.h"
+
 
 /**
  * 
  */
 UCLASS()
-class FIGHTING_TUT_API UFGInputBranch : public USM_Branch
+class FIGHTING_TUT_API UFGInputBranch : public USM_BranchBase
 {
 	GENERATED_BODY()
-	
-	
-	
-	
+public:
+
+	virtual USM_State* TryBranch(const UObject* RefObject, const TArray<USM_InputAtom*>& DataSource, int32 DataIndex, int32 &OutDataIndex) override;
+
+protected:
+
+	UPROPERTY(EditAnywhere, Meta = (Bitmask, BitmaskEnum = "EFGInputButtons"))
+	int32 RequiredButtons;
+
+	UPROPERTY(EditAnywhere, Meta = (Bitmask, BitmaskEnum = "EFGInputButtons"))
+	int32 ForbiddenButtons;
+
+	UPROPERTY(EditAnywhere, Meta = (Bitmask, BitmaskEnum = "EFGInputDirection"))
+	int32 AcceptableDirections;
+
+
 };
