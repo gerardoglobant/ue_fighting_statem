@@ -2,6 +2,7 @@
 
 #include "fighting_tut.h"
 #include "FGMove.h"
+#include "FGDefaultPawn.h"
 
 FFGMoveLinkToFollow UFGMove::TryLinks(const AFGDefaultPawn* RefObject, const TArray<USM_InputAtom*>& DataSource, int32 DataIndex, int32 RemainingSteps)
 {
@@ -36,7 +37,7 @@ FStateMachineResult UFGMoveLink::TryLink(const AFGDefaultPawn* RefObject, const 
 			}
 		}
 
-		if (bCanCancel == true || !CancelWindow.Num())
+		if (bCanCancel == true || !CancelWindows.Num())
 		{
 			return InputStateMachine->RunState(RefObject, DataSource, DataIndex, RemainingSteps);
 		}
